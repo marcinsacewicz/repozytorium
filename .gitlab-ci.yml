@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    -make clean
+    -make
+test:
+  stage: test
+  script:
+    -make test
+  -:
