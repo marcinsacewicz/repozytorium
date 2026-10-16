@@ -3,13 +3,18 @@ stages:
   - test
   - deploy
 
+default:
+  image:'debian:stable'
 build:
   stage: build
   script:
-    -make clean
+    -echo 123 > test.html
     -make
+  artifacts:
+  paths:
+    -test.html
 test:
   stage: test
   script:
-    -make test
+    -test -f test.html
   -:
